@@ -11,7 +11,7 @@
         "url": "https://github.com/GlobalFreightSolutions/gfs-button.git"
     },
     "name": "@gfsdeliver/gfs-button",
-    "version": "2.0.0",
+    "version": "2.0.0-preview.1",
     "main": "gfs-button.js",
     "author": "Global Freight Solutions",
     "license": "Apache-2.0",
