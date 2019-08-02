@@ -1,0 +1,29 @@
+{
+    "description": "GFS button element",
+    "keywords": [
+        "GFS",
+        "button",
+        "web-components",
+        "web-component"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/GlobalFreightSolutions/gfs-button.git"
+    },
+    "version": "2.0.0",
+    "main": "gfs-button.js",
+    "author": "Global Freight Solutions",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@polymer/polymer": "^3.0.0",
+        "@polymer/paper-button": "^3.0.0",
+        "@polymer/iron-icons": "^3.0.0"
+    },
+    "devDependencies": {
+        "@polymer/iron-test-helpers": "^3.0.0",
+        "@polymer/iron-component-page": "^4.0.0",
+        "@polymer/iron-demo-helpers": "^3.0.0",
+        "wct-browser-legacy": "^1.0.1",
+        "@webcomponents/webcomponentsjs": "^2.0.0"
+    }
+}
