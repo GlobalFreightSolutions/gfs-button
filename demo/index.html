@@ -1,0 +1,52 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <title>gfs-button demo</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+        <script src="https://unpkg.com/@webcomponents/webcomponentsjs@^2.0.0/webcomponents-loader.js"></script>
+        <script type="module">
+            import '@polymer/iron-demo-helpers/demo-snippet.js';
+            import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
+            import '@polymer/iron-icons/iron-icons.js';
+            import '@polymer/paper-styles/color.js';
+            import '../gfs-button.js';
+            import {html} from '@polymer/polymer/lib/utils/html-tag.js';
+
+            const template = html`
+                <custom-style>
+                    <style include="demo-pages-shared-styles">
+                        .vertical-section-container {
+                            max-width: 200px;
+                        }
+                        gfs-button {
+                            margin-left: 10px;
+                            margin-right: 10px;
+                        }
+                    </style>
+                </custom-style>`;
+            document.body.appendChild(template.content);
+        </script>
+    </head>
+    <body>
+        <div class="vertical-section-container centered">
+            <h3>Text buttons</h3>
+                <gfs-button text class="default">Default</gfs-button>
+                <gfs-button text class="primary">Primary</gfs-button>
+                <gfs-button text class="secondary">Secondary</gfs-button>
+                <gfs-button text disabled>Disabled</gfs-button>
+
+            <h3>Outlined buttons</h3>
+                <gfs-button outlined class="default outlined">Default</gfs-button>
+                <gfs-button outlined class="primary outlined">Primary</gfs-button>
+                <gfs-button outlined class="secondary outlined">Secondary</gfs-button>
+                <gfs-button outlined disabled class="disabled outlined">Disabled</gfs-button>
+
+            <h3>Contained buttons</h3>
+                <gfs-button raised class="default">Default</gfs-button>
+                <gfs-button raised class="primary">Primary</gfs-button>
+                <gfs-button raised class="secondary">Secondary</gfs-button>
+                <gfs-button raised disabled>Disabled</gfs-button>
+        </div>
+    </body>
+</html>

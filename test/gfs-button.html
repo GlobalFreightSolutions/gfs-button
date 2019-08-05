@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>gfs-button basic tests</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+        <script src="../node_modules/wct-browser-legacy/browser.js"></script>
+
+    </head>
+    <body>
+
+        <test-fixture id="minimalBtn">
+            <template>
+                <gfs-button>Button</gfs-button>
+            </template>
+        </test-fixture>
+
+        <script type="module">
+            import '@polymer/iron-test-helpers/mock-interactions.js';
+            import { Base } from '@polymer/polymer/polymer-legacy.js';
+            import { a11ySuite } from 'wct-browser-legacy/a11ySuite.js';
+            import '../gfs-button.js';
+
+            suite('<gfs-button>', () => {
+                var button;
+
+                setup(() => {
+                    button = fixture('minimalBtn');
+                });
+
+                test('can be raised imperatively', (done) => {
+                    button.raised = true;
+
+                    expect(button.hasAttribute('raised')).to.be.eql(true);
+
+                    Base.async(() => {
+                        try {
+                            expect(button.elevation).to.be.eql(1);
+                            done();
+                        } catch (e) {
+                            done(e);
+                        }
+                    }, 1);
+                });
+
+                test('can be unraised after being raised imperatively', (done) => {
+                    button.raised = true;
+                    expect(button.hasAttribute('raised')).to.be.eql(true);
+
+                    Base.async(() => {
+                        expect(button.elevation).to.be.eql(1);
+
+                        button.raised = false;
+                        expect(button.hasAttribute('raised')).to.be.eql(false);
+
+                        Base.async(() => {
+                            expect(button.elevation).to.be.eql(0);
+                            done();
+                        }, 1);
+                    }, 1);
+                });
+
+                test('can be disabled imperatively', () => {
+                    button.disabled = true;
+                    expect(button.getAttribute('aria-disabled')).to.be.eql('true');
+                    expect(button.hasAttribute('disabled')).to.be.eql(true);
+                });
+
+                test('can be triggered with space', (done) => {
+                    button.addEventListener('click', () => {
+                        done();
+                    });
+                    MockInteractions.pressSpace(button);
+                });
+
+                test('can be triggered with enter', (done) => {
+                    button.addEventListener('click', () => {
+                        done();
+                    });
+                    MockInteractions.pressEnter(button);
+                });
+            });
+
+            suite('<gfs-button>', () => {
+                var button;
+
+                setup(() => {
+                    button = fixture('minimalBtn');
+                });
+
+                test('has aria role "button"', () => {
+                    expect(button.getAttribute('role')).to.be.eql('button');
+                });
+
+                a11ySuite('minimalBtn');
+            });
+        </script>

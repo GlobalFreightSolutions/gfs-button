@@ -5,7 +5,7 @@ Buttons have 3 attributes you can use: text, outlined and raised. Read below how
 ### Install
 
 ```bash
-$ npm i --save gfs-button
+$ npm i --save @gfsdeliver/gfs-button
 ```
 
 ### Import In a HTML file:
